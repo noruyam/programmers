@@ -15,24 +15,21 @@ public class Solution39 {
 
         Stack<Integer> stack = new Stack<>();
         Queue<Integer> queue = new LinkedList<>();
-
+        boolean chk = true;
         stack.push(arr[0]);
-        queue.add(arr[0]);
-        for (int i = 0; i < arr.length; i++) {
-            if (stack.search(arr[i]) > 0) {
-            } else {
+        queue.offer(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
                 stack.push(arr[i]);
-                System.out.println(stack.peek());
+                queue.offer(arr[i]);
             }
         }
         int idx = 0;
         int[] answer = new int[stack.size()];
         for (int a : stack) {
-            answer[idx]=a;
+            answer[idx] = a;
             idx++;
-            System.out.println(a);
         }
         return answer;
-
     }
 }
