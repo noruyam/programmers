@@ -1,16 +1,12 @@
 import Lv0.*;
 import Lv1.Solution01;
+import Lv1.Solution02;
 
 public class Main {
     public static void main(String[] args) {
 
-        Solution46 solution40 = new Solution46();
-
-        int[] test=solution40.solution(7,0);
-//        System.out.println(solution40.solution(3,0));
-        for (int a : test) {
-            System.out.println(a);
-        }
+        Solution02 solution40 = new Solution02();
+        String a=solution40.solution(new String[]{"AN"}, new int[]{5});
     }
 
 }
