@@ -13,11 +13,14 @@ public class Solution02 {
     public String solution(String[] survey, int[] choices) {
         String answer = "";
         Map<String, Integer> map = new HashMap<>();
-        String test = ChoiceScore(3).substring(0, 1);
+        String test = ChoiceScore(6).substring(0, 1);
         if ("d".equals(test)) {
+            PersonalityType(test,"NA");
             System.out.println(test);
+            System.out.println(PersonalityType(test,"NA"));
         } else if ("a".equals(test)) {
             System.out.println(test);
+            System.out.println(PersonalityType(test,"NA"));
         } else {
             System.out.println(test);
         }
