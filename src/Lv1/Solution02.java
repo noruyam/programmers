@@ -13,17 +13,22 @@ public class Solution02 {
     public String solution(String[] survey, int[] choices) {
         String answer = "";
         Map<String, Integer> map = new HashMap<>();
-        String test = ChoiceScore(6).substring(0, 1);
-        if ("d".equals(test)) {
-            PersonalityType(test,"NA");
-            System.out.println(test);
-            System.out.println(PersonalityType(test,"NA"));
-        } else if ("a".equals(test)) {
-            System.out.println(test);
-            System.out.println(PersonalityType(test,"NA"));
-        } else {
-            System.out.println(test);
+        String test = "";
+
+        for (int i = 0; i < survey.length; i++) {
+            test = ChoiceScore(choices[i]).substring(0, 1);
+            System.out.println("??"+test);
+            if ("d".equals(test)) {
+                map.put(PersonalityType(test, survey[i]), map.getOrDefault(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1))));
+                System.out.println(map.get("N"));
+            } else if ("a".equals(test)) {
+                map.put(PersonalityType(test, survey[i]), map.getOrDefault(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1))));
+                System.out.println(map.get("N"));
+            } else {
+                System.out.println(test);
+            }
         }
+
         return answer;
     }
 
