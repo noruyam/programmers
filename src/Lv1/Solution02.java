@@ -14,22 +14,34 @@ public class Solution02 {
         String answer = "";
         Map<String, Integer> map = new HashMap<>();
         String test = "";
-
+//        map.put("N", 2);
         for (int i = 0; i < survey.length; i++) {
             test = ChoiceScore(choices[i]).substring(0, 1);
-            System.out.println("??"+test);
+            System.out.println("??" + ChoiceScore(choices[i]).substring(1));
             if ("d".equals(test)) {
-                map.put(PersonalityType(test, survey[i]), map.getOrDefault(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1))));
-                System.out.println(map.get("N"));
+                System.out.println(PersonalityType(test, survey[i]));
+                if (null == map.get(PersonalityType(test, survey[i]))) {
+                    map.put(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1)));
+                } else {
+                    map.put(PersonalityType(test, survey[i]), map.get(PersonalityType(test, survey[i])) + Integer.valueOf(ChoiceScore(choices[i]).substring(1)));
+                }
+
             } else if ("a".equals(test)) {
-                map.put(PersonalityType(test, survey[i]), map.getOrDefault(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1))));
-                System.out.println(map.get("N"));
+                System.out.println(PersonalityType(test, survey[i]));
+                if (null == map.get(PersonalityType(test, survey[i]))) {
+                    map.put(PersonalityType(test, survey[i]), Integer.valueOf(ChoiceScore(choices[i]).substring(1)));
+                } else {
+                    map.put(PersonalityType(test, survey[i]), map.get(PersonalityType(test, survey[i])) + Integer.valueOf(ChoiceScore(choices[i]).substring(1)));
+                }
+
+
             } else {
                 System.out.println(test);
             }
         }
 
-        return answer;
+
+        return Fin(map);
     }
 
     public String PersonalityType(String a, String ty) {
@@ -82,4 +94,41 @@ public class Solution02 {
         return String.valueOf(idx);
     }
 
+    public String Fin(Map map) {
+        String answer = "";
+        int R, T, C, F, J, M, A, N;
+        R = (int) map.getOrDefault("R", 0);
+        T = (int) map.getOrDefault("T", 0);
+        C = (int) map.getOrDefault("C", 0);
+        F = (int) map.getOrDefault("F", 0);
+        J = (int) map.getOrDefault("J", 0);
+        M = (int) map.getOrDefault("M", 0);
+        A = (int) map.getOrDefault("A", 0);
+        N = (int) map.getOrDefault("N", 0);
+
+        if (R > T) {
+            answer += "R";
+        } else {
+            answer += "T";
+        }
+        if (C > F) {
+            answer += "C";
+        } else {
+            answer += "F";
+        }
+        if (J > M) {
+            answer += "J";
+        } else {
+            answer += "M";
+        }
+        if (A > N) {
+            answer += "A";
+        } else if (A == N) {
+            answer += "A";
+        } else {
+            answer += "N";
+        }
+        System.out.println(A + " " + N + " " + answer);
+        return answer;
+    }
 }
