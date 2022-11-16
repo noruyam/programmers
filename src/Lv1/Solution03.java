@@ -41,10 +41,14 @@ public class Solution03 {
             arr[i] = cnt;
             idx = 0;
             cnt = 0;
+
         }
         int iMax = 0;
         for (int aa : arr) {
             iMax = Math.max(aa, iMax);
+        }
+        if (iMax == 0) {
+            return new int[]{0};
         }
         int cc = 0;
         for (int b : arr) {
@@ -54,17 +58,16 @@ public class Solution03 {
         }
         int[] answer = new int[cc];
         int bb = 1;
+        int qqq = 0;
         for (int b : arr) {
             if (b == iMax) {
-                answer[bb - 1] = bb;
-                bb++;
+                answer[qqq] = bb;
+                qqq++;
             }
+            bb++;
         }
         Arrays.sort(answer);
-        for (int bbb: answer
-             ) {
-            System.out.println(bbb);
-        }
+
         return answer;
     }
 }
