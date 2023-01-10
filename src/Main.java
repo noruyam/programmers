@@ -1,14 +1,14 @@
-import Lv0.*;
-import Lv1.Solution01;
-import Lv1.Solution02;
-import Lv1.Solution03;
+import Lv1.*;
+import Lv2.Solution4;
 
 public class Main {
     public static void main(String[] args) {
 
 
-        Solution03 solution40 = new Solution03();
-        String a= String.valueOf(solution40.solution(new int[]{ 2, 1, 2, 3, 2, 4, 2, 5, 2}));
+        Solution34 solution = new Solution34();
+        solution.solution(new int[]{1, 2, 3, 4,5});
+
+
     }
 
 }
