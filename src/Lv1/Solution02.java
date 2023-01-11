@@ -108,19 +108,28 @@ public class Solution02 {
 
         if (R > T) {
             answer += "R";
+        } else if (R == T) {
+            answer += "R";
         } else {
             answer += "T";
         }
+
         if (C > F) {
+            answer += "C";
+        } else if (C == F) {
             answer += "C";
         } else {
             answer += "F";
         }
+
         if (J > M) {
+            answer += "J";
+        } else if (J == M) {
             answer += "J";
         } else {
             answer += "M";
         }
+
         if (A > N) {
             answer += "A";
         } else if (A == N) {
